@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NLog;
 
 namespace my_aspnetmvc_learning.Controllers
 {
     public class ImageController : Controller
     {
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
         // GET: Upload
         public ActionResult Index()
         {
@@ -20,6 +22,7 @@ namespace my_aspnetmvc_learning.Controllers
                 var file = Request.Files[i];
                 if (file != null)
                 {
+                    logger.Info("FileName : " + file.FileName);
                     file.SaveAs(AppDomain.CurrentDomain.BaseDirectory + "upload/" + file.FileName);
                 }
             }
