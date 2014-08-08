@@ -27,8 +27,8 @@ namespace my_aspnetmvc_learning.Controllers
                 var file = Request.Files[i];
                 if (file.IsNotNull())
                 {
-                    logger.Info("FileName : " + file.FileName);
-                    file.SaveAs(AppDomain.CurrentDomain.BaseDirectory + "upload/" + file.FileName);
+                    logger.Info(string.Format("FileName : {0}", file.FileName));
+                    file.SaveAs(filename: AppDomain.CurrentDomain.BaseDirectory + "upload/" + file.FileName);
                 }
             }
             return Json(new { success = true }, JsonRequestBehavior.AllowGet);
