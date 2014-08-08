@@ -1,0 +1,8 @@
+﻿NLog.Config
+
+Redslide.HttpLib.dll
+http://httplib.codeplex.com/
+Z.ExtensionMethods
+https://zextensionmethods.codeplex.com/license
+NSoup
+http://nsoup.codeplex.com/
