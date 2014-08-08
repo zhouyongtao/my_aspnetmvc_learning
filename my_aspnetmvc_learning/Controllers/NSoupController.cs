@@ -22,10 +22,12 @@ namespace my_aspnetmvc_learning.Controllers
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
         #region 设置默认Http参数
+
         /// <summary>
         /// 设置默认UserAgent
         /// </summary>
-        private static readonly string defaultUserAgent = @"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 Firefox/30.0";
+        private const string defaultUserAgent = @"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:30.0) Gecko/20100101 Firefox/30.0";
+
         /// <summary>
         /// 设置会话Cookie
         /// </summary>
