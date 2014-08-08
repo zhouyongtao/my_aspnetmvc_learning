@@ -13,8 +13,8 @@ Redslide.HttpLib
 http://httplib.codeplex.com/
 Z.ExtensionMethods
 ==================
-https://zextensionmethods.codeplex.com/license
+https://zextensionmethods.codeplex.com/license</br>
+http://jonathanmagnan.com/extension-methods-library/
 NSoup
 =====
-http://jonathanmagnan.com/extension-methods-library/
 http://nsoup.codeplex.com/
