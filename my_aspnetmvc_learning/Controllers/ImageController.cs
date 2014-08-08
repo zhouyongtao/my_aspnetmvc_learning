@@ -25,7 +25,7 @@ namespace my_aspnetmvc_learning.Controllers
             for (var i = 0; i < Request.Files.Count; i++)
             {
                 var file = Request.Files[i];
-                if (file != null)
+                if (file.IsNotNull())
                 {
                     logger.Info("FileName : " + file.FileName);
                     file.SaveAs(AppDomain.CurrentDomain.BaseDirectory + "upload/" + file.FileName);
