@@ -18,3 +18,6 @@ http://jonathanmagnan.com/extension-methods-library/
 NSoup
 =====
 http://nsoup.codeplex.com/
+SWFObject
+=========
+http://code.google.com/p/swfobject/
