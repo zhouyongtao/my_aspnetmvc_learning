@@ -15,6 +15,11 @@ namespace my_aspnetmvc_learning.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// 文件上传
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Upload()
         {
             for (var i = 0; i < Request.Files.Count; i++)
