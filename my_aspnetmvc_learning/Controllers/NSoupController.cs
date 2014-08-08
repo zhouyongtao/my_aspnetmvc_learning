@@ -134,7 +134,7 @@ namespace my_aspnetmvc_learning.Controllers
         public async Task<string> Get()
         {
             var httpClient = new HttpClient();
-            return await httpClient.GetStringAsync("http://www.baidu.com");
+            return await httpClient.GetStringAsync("http://hotels.ctrip.com/hotel/shanghai2");
         }
 
 
