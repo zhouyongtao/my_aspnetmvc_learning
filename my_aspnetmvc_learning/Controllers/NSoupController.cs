@@ -39,7 +39,7 @@ namespace my_aspnetmvc_learning.Controllers
             {
                 if (url.IsEmpty())
                     throw new ArgumentNullException("url");
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+                var req = (HttpWebRequest)WebRequest.Create(url);
                 req.KeepAlive = true;
                 req.Method = method.ToUpper();
                 req.AllowAutoRedirect = true;
@@ -58,7 +58,7 @@ namespace my_aspnetmvc_learning.Controllers
                 }
                 if (method.ToUpper() == "POST" && !data.IsEmpty())
                 {
-                    byte[] postBytes = UTF8Encoding.UTF8.GetBytes(data);
+                    var postBytes = Encoding.UTF8.GetBytes(data);
                     req.ContentLength = postBytes.Length;
                     using (Stream stream = req.GetRequestStream())
                     {
@@ -66,12 +66,9 @@ namespace my_aspnetmvc_learning.Controllers
                     }
                 }
                 //忽略HTTPS证书
-                System.Net.ServicePointManager.ServerCertificateValidationCallback += (se, cert, chain, sslError) =>
-                {
-                    return true;
-                };
-                HttpWebResponse rep = (HttpWebResponse)req.GetResponse();
-                using (StreamReader read = new StreamReader(rep.GetResponseStream(), Encoding.GetEncoding("UTF-8")))
+                System.Net.ServicePointManager.ServerCertificateValidationCallback += (se, cert, chain, sslError) => true;
+                var rep = (HttpWebResponse)req.GetResponse();
+                using (var read = new StreamReader(rep.GetResponseStream(), Encoding.GetEncoding("UTF-8")))
                 {
                     return read.ReadToEnd();
                 }
