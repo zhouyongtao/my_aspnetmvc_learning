@@ -22,6 +22,13 @@ namespace my_aspnetmvc_learning.Controllers
         /// <returns></returns>
         public ActionResult Upload()
         {
+            //检查文件夹
+            string pathDir = Server.MapPath("~/upload");
+            if (System.IO.File.Exists(pathDir))
+            {
+                System.IO.Directory.CreateDirectory(pathDir);
+            }
+            //保存文件
             for (var i = 0; i < Request.Files.Count; i++)
             {
                 var file = Request.Files[i];
