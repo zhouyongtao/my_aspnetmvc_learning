@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -32,13 +33,12 @@ namespace my_aspnetmvc_learning.Controllers
             for (var i = 0; i < Request.Files.Count; i++)
             {
                 var file = Request.Files[i];
-                if (file.IsNotNull())
-                {
-                    logger.Info(string.Format("FileName : {0}", file.FileName));
-                    file.SaveAs(filename: AppDomain.CurrentDomain.BaseDirectory + "upload/" + file.FileName);
-                }
+                if (!file.IsNotNull()) continue;
+                Debug.Assert(file != null, "file != null");
+                logger.Info(string.Format("FileName : {0}", file.FileName));
+                file.SaveAs(filename: AppDomain.CurrentDomain.BaseDirectory + "upload/" + file.FileName);
             }
-            return Json(new { success = true }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = true, msg = "上传成功！" }, JsonRequestBehavior.AllowGet);
         }
     }
 }
