@@ -183,6 +183,7 @@
     <Compile Include="Controllers\NSoupController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\RmbController.cs" />
+    <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,6 +288,7 @@
     <Folder Include="upload\" />
     <Folder Include="Views\NSoup\" />
     <Folder Include="Views\Rmb\" />
+    <Folder Include="Views\Task\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
