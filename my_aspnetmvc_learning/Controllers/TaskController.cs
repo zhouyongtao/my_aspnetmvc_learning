@@ -43,15 +43,14 @@ namespace my_aspnetmvc_learning.Controllers
                     return false; // Let anything else stop the application.
                 });
             }
-            logger.Info("task1 Status: {0}{1}", task1.IsCompleted ? "Completed," : "",
-                                                      task1.Status);
+            logger.Info("task1 Status: {0}{1}", task1.IsCompleted ? "Completed," : "", task1.Status);
             return View();
         }
 
-        static string[] GetAllFiles(string str)
+        public static string[] GetAllFiles(string str)
         {
             // Should throw an UnauthorizedAccessException exception. 
-            return System.IO.Directory.GetFiles(str, "*.txt", System.IO.SearchOption.AllDirectories);
+            return Directory.GetFiles(str, "*.txt", SearchOption.AllDirectories);
         }
     }
 }
