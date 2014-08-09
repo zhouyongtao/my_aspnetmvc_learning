@@ -11,7 +11,7 @@ namespace my_aspnetmvc_learning.Controllers
         // GET: Rmb
         public ActionResult Index()
         {
-            return Content(Rmb.CmycurD(0.149m));
+            return Content(Rmb.CmycurD(0.2339m));
         }
     }
     /// <summary> 
