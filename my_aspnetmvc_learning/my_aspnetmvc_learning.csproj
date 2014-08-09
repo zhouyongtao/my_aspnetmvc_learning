@@ -182,6 +182,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NSoupController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\RmbController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -285,6 +286,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="upload\" />
     <Folder Include="Views\NSoup\" />
+    <Folder Include="Views\Rmb\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
