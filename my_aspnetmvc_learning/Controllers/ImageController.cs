@@ -23,7 +23,7 @@ namespace my_aspnetmvc_learning.Controllers
         /// <returns></returns>
         public ActionResult Upload()
         {
-            //检查文件夹
+            //检查文件夹是否存在
             string pathDir = Server.MapPath("~/upload");
             if (System.IO.File.Exists(pathDir))
             {
