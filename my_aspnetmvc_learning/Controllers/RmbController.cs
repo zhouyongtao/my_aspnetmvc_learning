@@ -6,6 +6,10 @@ using System.Web.Mvc;
 
 namespace my_aspnetmvc_learning.Controllers
 {
+
+    /// <summary>
+    /// 数值金额转换
+    /// </summary>
     public class RmbController : Controller
     {
         // GET: Rmb
