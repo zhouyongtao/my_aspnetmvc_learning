@@ -23,9 +23,6 @@ namespace my_aspnetmvc_learning.Controllers
 
             // Use this line to throw UnauthorizedAccessException, which we handle.
             Task<string[]> task1 = Task<string[]>.Factory.StartNew(() => GetAllFiles(path));
-
-            // Use this line to throw an exception that is not handled. 
-            // Task task1 = Task.Factory.StartNew(() => { throw new IndexOutOfRangeException(); } ); 
             try
             {
                 task1.Wait();
