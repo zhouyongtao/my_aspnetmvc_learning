@@ -7,7 +7,6 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using Z;
 using NLog;
 using HanTing;
 using System.Threading.Tasks;
