@@ -1,8 +1,10 @@
 ﻿using NLog;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -49,5 +51,23 @@ namespace my_aspnetmvc_learning.Controllers
             // Should throw an UnauthorizedAccessException exception. 
             return Directory.GetFiles(str, "*.txt", SearchOption.AllDirectories);
         }
+
+        public ActionResult Test()
+        {
+            var watch = Stopwatch.StartNew();
+            watch.Start();
+            Parallel.Invoke(
+               () =>
+               {
+                   Thread.Sleep(5000);
+               },
+               () =>
+               {
+                   Thread.Sleep(4000);
+               }
+               );
+            return Content(watch.ElapsedMilliseconds.ToString());
+        }
+
     }
 }
