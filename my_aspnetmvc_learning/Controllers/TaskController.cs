@@ -49,5 +49,11 @@ namespace my_aspnetmvc_learning.Controllers
             // Should throw an UnauthorizedAccessException exception. 
             return Directory.GetFiles(str, "*.txt", SearchOption.AllDirectories);
         }
+
+
+        public static string Test()
+        {
+            return string.Empty;
+        }
     }
 }
