@@ -182,6 +182,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NSoupController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\ParallelController.cs" />
     <Compile Include="Controllers\RmbController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Global.asax.cs">
@@ -287,6 +288,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="upload\" />
     <Folder Include="Views\NSoup\" />
+    <Folder Include="Views\Parallel\" />
     <Folder Include="Views\Rmb\" />
     <Folder Include="Views\Task\" />
   </ItemGroup>
