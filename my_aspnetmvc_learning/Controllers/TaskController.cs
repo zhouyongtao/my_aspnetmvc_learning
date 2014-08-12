@@ -56,15 +56,8 @@ namespace my_aspnetmvc_learning.Controllers
             var watch = Stopwatch.StartNew();
             watch.Start();
             Parallel.Invoke(
-               () =>
-               {
-                   Thread.Sleep(5000);
-               },
-               () =>
-               {
-                   Thread.Sleep(4000);
-               }
-               );
+               () => Thread.Sleep(5000),
+               () => Thread.Sleep(4000));
             return Content(watch.ElapsedMilliseconds.ToString());
         }
 
@@ -91,5 +84,7 @@ namespace my_aspnetmvc_learning.Controllers
             }
             return Content(dictDays.Count() + " : " + dictSortDays.Count());
         }
+
+
     }
 }
