@@ -22,7 +22,6 @@ namespace my_aspnetmvc_learning.Controllers
             string path = Directory.GetParent(
                                     Environment.GetFolderPath(
                                     Environment.SpecialFolder.UserProfile)).FullName;
-
             // Use this line to throw UnauthorizedAccessException, which we handle.
             Task<string[]> task1 = Task<string[]>.Factory.StartNew(() => GetAllFiles(path));
             try
