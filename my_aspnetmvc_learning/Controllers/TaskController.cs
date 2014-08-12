@@ -20,8 +20,8 @@ namespace my_aspnetmvc_learning.Controllers
         {
             // Get a folder path whose directories should throw an UnauthorizedAccessException. 
             string path = Directory.GetParent(
-                                    Environment.GetFolderPath(
-                                    Environment.SpecialFolder.UserProfile)).FullName;
+                Environment.GetFolderPath(
+                    Environment.SpecialFolder.UserProfile)).FullName;
             // Use this line to throw UnauthorizedAccessException, which we handle.
             Task<string[]> task1 = Task<string[]>.Factory.StartNew(() => GetAllFiles(path));
             try
@@ -56,8 +56,8 @@ namespace my_aspnetmvc_learning.Controllers
             var watch = Stopwatch.StartNew();
             watch.Start();
             Parallel.Invoke(
-               () => Thread.Sleep(5000),
-               () => Thread.Sleep(4000));
+                () => Thread.Sleep(5000),
+                () => Thread.Sleep(4000));
             return Content(watch.ElapsedMilliseconds.ToString());
         }
 
@@ -69,10 +69,14 @@ namespace my_aspnetmvc_learning.Controllers
             var dictSortDays = new SortedDictionary<string, string>();
             try
             {
-                System.Threading.Tasks.Parallel.For(0, 35, i => dictDays.TryAdd(DateTime.Now.AddDays(i).ToString("yyyy-MM-dd"), DateTime.Now.AddDays(i + 1).ToString("yyyy-MM-dd")));
+                System.Threading.Tasks.Parallel.For(0, 35,
+                    i =>
+                        dictDays.TryAdd(DateTime.Now.AddDays(i).ToString("yyyy-MM-dd"),
+                            DateTime.Now.AddDays(i + 1).ToString("yyyy-MM-dd")));
                 for (int i = 0; i < 35; i++)
                 {
-                    dictSortDays.Add(DateTime.Now.AddDays(i).ToString("yyyy-MM-dd"), DateTime.Now.AddDays(i + 1).ToString("yyyy-MM-dd"));
+                    dictSortDays.Add(DateTime.Now.AddDays(i).ToString("yyyy-MM-dd"),
+                        DateTime.Now.AddDays(i + 1).ToString("yyyy-MM-dd"));
                 }
             }
             catch (AggregateException ex)
@@ -85,6 +89,20 @@ namespace my_aspnetmvc_learning.Controllers
             return Content(dictDays.Count() + " : " + dictSortDays.Count());
         }
 
+        public ActionResult Range()
+        {
+            int[] nums = Enumerable.Range(0, 1000000).ToArray();
+            long total = 0;
+            // Use type parameter to make subtotal a long, not an int
+            Parallel.For<long>(0, nums.Length, () => 0, (j, loop, subtotal) =>
+            {
+                subtotal += nums[j];
+                return subtotal;
+            },
+                (x) => Interlocked.Add(ref total, x)
+                );
 
+            return Content(total.ToString());
+        }
     }
 }
