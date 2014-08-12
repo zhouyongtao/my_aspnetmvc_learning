@@ -1,4 +1,5 @@
-﻿using NLog;
+﻿using System.Globalization;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -95,13 +96,13 @@ namespace my_aspnetmvc_learning.Controllers
             long total = 0;
             // Use type parameter to make subtotal a long, not an int
             Parallel.For<long>(0, nums.Length, () => 0, (j, loop, subtotal) =>
-            {
-                subtotal += nums[j];
-                return subtotal;
-            },
-                (x) => Interlocked.Add(ref total, x)
-                );
-            return Content(total.ToString());
+                {
+                    subtotal += nums[j];
+                    return subtotal;
+                },
+                x => Interlocked.Add(ref total, x)
+            );
+            return Content(total.ToString(CultureInfo.InvariantCulture));
         }
     }
 }
