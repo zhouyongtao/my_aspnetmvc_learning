@@ -6,3 +6,6 @@ Z.ExtensionMethods
 https://zextensionmethods.codeplex.com/license
 NSoup
 http://nsoup.codeplex.com/
+
+.NET Framework 中的并行编程
+http://msdn.microsoft.com/zh-cn/library/dd460693(v=vs.110).aspx
