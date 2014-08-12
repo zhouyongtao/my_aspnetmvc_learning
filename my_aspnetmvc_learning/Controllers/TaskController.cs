@@ -101,7 +101,6 @@ namespace my_aspnetmvc_learning.Controllers
             },
                 (x) => Interlocked.Add(ref total, x)
                 );
-
             return Content(total.ToString());
         }
     }
