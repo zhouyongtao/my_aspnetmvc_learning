@@ -235,6 +235,11 @@
     <Content Include="Lib\Redslide.HttpLib.dll" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\FlexPaper\FlexPaperViewer.swf" />
+    <Content Include="Scripts\FlexPaper\js\flexpaper_flash.js" />
+    <Content Include="Scripts\FlexPaper\js\flexpaper_flash_debug.js" />
+    <Content Include="Scripts\FlexPaper\js\jquery.js" />
+    <Content Include="Scripts\FlexPaper\playerProductInstall.swf" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
