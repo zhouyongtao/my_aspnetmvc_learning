@@ -33,7 +33,7 @@ dlldata.c
 *.meta
 *.obj
 *.pch
-*.exe
+#*.exe
 *.pdb
 *.pgc
 *.pgd
