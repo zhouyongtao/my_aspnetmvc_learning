@@ -256,6 +256,7 @@
     <Content Include="Scripts\swfobject\expressInstall.swf" />
     <Content Include="Scripts\swfobject\swfobject.js" />
     <Content Include="Scripts\swfobject\uploadImage.swf" />
+    <Content Include="Scripts\SWFTools\pdf2swf.exe" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
