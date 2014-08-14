@@ -62,7 +62,6 @@ namespace my_aspnetmvc_learning.Controllers
             return Content(watch.ElapsedMilliseconds.ToString());
         }
 
-
         public ActionResult dict()
         {
             var dictDays = new System.Collections.Concurrent.ConcurrentDictionary<string, string>();
@@ -70,11 +69,11 @@ namespace my_aspnetmvc_learning.Controllers
             var dictSortDays = new SortedDictionary<string, string>();
             try
             {
-                System.Threading.Tasks.Parallel.For(0, 35,
+                Parallel.For(0, 35,
                     i =>
                         dictDays.TryAdd(DateTime.Now.AddDays(i).ToString("yyyy-MM-dd"),
                             DateTime.Now.AddDays(i + 1).ToString("yyyy-MM-dd")));
-                for (int i = 0; i < 35; i++)
+                for (var i = 0; i < 35; i++)
                 {
                     dictSortDays.Add(DateTime.Now.AddDays(i).ToString("yyyy-MM-dd"),
                         DateTime.Now.AddDays(i + 1).ToString("yyyy-MM-dd"));
