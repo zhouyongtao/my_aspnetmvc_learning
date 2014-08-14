@@ -14,7 +14,7 @@ namespace my_aspnetmvc_learning.Controllers
 {
     public class TaskController : Controller
     {
-        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
         // GET: Task
         public ActionResult Index()
@@ -35,14 +35,14 @@ namespace my_aspnetmvc_learning.Controllers
                 {
                     if (x is UnauthorizedAccessException) // This we know how to handle.
                     {
-                        logger.Info("You do not have permission to access all folders in this path.");
-                        logger.Info("See your network administrator or try another path.");
+                        Logger.Info("You do not have permission to access all folders in this path.");
+                        Logger.Info("See your network administrator or try another path.");
                         return true;
                     }
                     return false; // Let anything else stop the application.
                 });
             }
-            logger.Info("task1 Status: {0}{1}", task1.IsCompleted ? "Completed," : "", task1.Status);
+            Logger.Info("task1 Status: {0}{1}", task1.IsCompleted ? "Completed," : "", task1.Status);
             return View();
         }
 
@@ -84,7 +84,7 @@ namespace my_aspnetmvc_learning.Controllers
             {
                 foreach (var single in ex.InnerExceptions)
                 {
-                    logger.Error("HanTingServiceJob AggregateException: " + ex.Message + ex.InnerException);
+                    Logger.Error("HanTingServiceJob AggregateException: " + ex.Message + ex.InnerException);
                 }
             }
             return Content(dictDays.Count() + " : " + dictSortDays.Count());
