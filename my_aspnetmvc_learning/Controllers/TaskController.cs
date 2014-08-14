@@ -104,5 +104,35 @@ namespace my_aspnetmvc_learning.Controllers
             );
             return Content(total.ToString(CultureInfo.InvariantCulture));
         }
+
+        static void Num()
+        {
+            // The sum of these elements is 40.
+            int[] input = { 4, 1, 6, 2, 9, 5, 10, 3 };
+            int sum = 0;
+
+            try
+            {
+                Parallel.ForEach(
+                        input,					        // source collection
+                        () => 0,					        // thread local initializer
+                        (n, loopState, localSum) =>		// body
+                        {
+                            localSum += n;
+                            Console.WriteLine("Thread={0}, n={1}, localSum={2}", Thread.CurrentThread.ManagedThreadId, n, localSum);
+                            return localSum;
+                        },
+                        (localSum) => Interlocked.Add(ref sum, localSum)					// thread local aggregator
+                    );
+
+                Console.WriteLine("\nSum={0}", sum);
+            }
+            // No exception is expected in this example, but if one is still thrown from a task,
+            // it will be wrapped in AggregateException and propagated to the main thread.
+            catch (AggregateException e)
+            {
+                Console.WriteLine("Parallel.ForEach has thrown an exception. THIS WAS NOT EXPECTED.\n{0}", e);
+            }
+        }
     }
 }
