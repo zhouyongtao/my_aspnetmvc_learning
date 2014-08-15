@@ -30,9 +30,14 @@ namespace my_aspnetmvc_learning.Controllers
         public ActionResult dict()
         {
             //BlockingCollection
-            var list = new BlockingCollection<string>();
-            list.TryAdd("irving");
-            list.TryAdd("jack");
+            var list = new BlockingCollection<int>();
+            Enumerable.Range(1, 999).AsParallel().ForAll(n =>
+            {
+                var num = n % 9;
+                if (list.Count(p => p != 10) < 1)
+                    list.Add(num);
+            });
+
             //ConcurrentDictionary
             var dictParallelDays = new ConcurrentDictionary<string, string>();
             try
