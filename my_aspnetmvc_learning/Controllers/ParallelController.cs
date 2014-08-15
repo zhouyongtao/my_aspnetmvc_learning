@@ -29,6 +29,11 @@ namespace my_aspnetmvc_learning.Controllers
         }
         public ActionResult dict()
         {
+            //BlockingCollection
+            var list = new BlockingCollection<string>();
+            list.TryAdd("irving");
+            list.TryAdd("jack");
+            //ConcurrentDictionary
             var dictParallelDays = new ConcurrentDictionary<string, string>();
             try
             {
