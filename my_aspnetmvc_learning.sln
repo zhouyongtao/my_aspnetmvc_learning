@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "my_aspnetmvc_learning", "my_aspnetmvc_learning\my_aspnetmvc_learning.csproj", "{DD6C4615-7DFC-4CB1-AEE6-846F0C996596}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelTask", "ParallelTask\ParallelTask.csproj", "{BBE06A77-12AD-4EAE-BC26-CE36325AC565}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DD6C4615-7DFC-4CB1-AEE6-846F0C996596}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD6C4615-7DFC-4CB1-AEE6-846F0C996596}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD6C4615-7DFC-4CB1-AEE6-846F0C996596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBE06A77-12AD-4EAE-BC26-CE36325AC565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE06A77-12AD-4EAE-BC26-CE36325AC565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE06A77-12AD-4EAE-BC26-CE36325AC565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE06A77-12AD-4EAE-BC26-CE36325AC565}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

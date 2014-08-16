@@ -135,12 +135,11 @@ namespace my_aspnetmvc_learning.Controllers
         }
 
 
-        public void task()
+        public void WeekDay()
         {
-            Task.Run(() =>
-            {
-
-            });
+            //运行在另外一个线程中
+            var dayName = Task.Run<string>(() => new DateTime().DayOfWeek.ToString());
+            Console.WriteLine("今天是：{0}", dayName.Result);
         }
     }
 }
