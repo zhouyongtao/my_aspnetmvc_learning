@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Cache;
 using System.Net.Http;
 using System.Text;
@@ -86,12 +87,20 @@ namespace ParallelTask
                 e.InnerExceptions.Select(x => x.Message)));
             }
         }
-        static async Task<int> GetPageLengthAsync(string url)
+        static async Task<string> GetPageLengthAsync(string url)
         {
-            using (var client = new HttpClient())
+            try
             {
-                Task<string> fetchTextTask = client.GetStringAsync(url);
-                return (await fetchTextTask).Length;
+                using (var client = new HttpClient())
+                {
+                    Task<string> fetchTextTask = client.GetStringAsync(url);
+                    return await fetchTextTask;
+                }
+            }
+            catch (WebException exception)
+            {
+                // TODO: Logging, update statistics etc.
+                return string.Empty;
             }
         }
 
