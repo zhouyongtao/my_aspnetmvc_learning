@@ -26,7 +26,18 @@ namespace ParallelTask
             //Console.WriteLine(lengthTask.Result);
 
             //  CatchMultipleExceptions();
-            ReadFile();
+            // ReadFile();
+            Func<int, Task<int>> function = async x =>
+            {
+                Console.WriteLine("Starting... x={0} CurrentThread {1}", x, Thread.CurrentThread.ManagedThreadId);
+                await Task.Delay(x * 1000);
+                Console.WriteLine("Finished... x={0} CurrentThread {1}", x, Thread.CurrentThread.ManagedThreadId);
+                return x * 2;
+            };
+            Task<int> first = function(5);
+            Task<int> second = function(6);
+            Console.WriteLine("First result: {0} CurrentThread {1}", first.Result, Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Second result: {0}  CurrentThread {1}", second.Result, Thread.CurrentThread.ManagedThreadId);
             logger("Main Current End Thread Id :" + Thread.CurrentThread.ManagedThreadId);
 
             /*
