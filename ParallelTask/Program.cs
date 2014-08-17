@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Cache;
 using System.Net.Http;
@@ -20,8 +21,11 @@ namespace ParallelTask
             //TestExpression.StartsWith();
             // TestExpression.Range();
             //TestAwait();
-            Task<int> lengthTask =GetPageLengthAsync("http://baidu.com");
-            Console.WriteLine(lengthTask.Result);
+            // Task<int> lengthTask =GetPageLengthAsync("http://baidu.com");
+            //Console.WriteLine(lengthTask.Result);
+
+            //  CatchMultipleExceptions();
+            ReadFile();
             logger("Main Current End Thread Id :" + Thread.CurrentThread.ManagedThreadId);
 
             /*
@@ -39,6 +43,49 @@ namespace ParallelTask
             Console.ReadKey();
         }
 
+        static async Task ReadFile()
+        {
+            Task<string> task = ReadFileAsync(@"D:\config.xml");
+            try
+            {
+                string text = await task;
+                Console.WriteLine("Thread.CurrentThread Id: {0} ReadFileAsync File contents:  {1} ", Thread.CurrentThread.ManagedThreadId, text);
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Caught IOException: {0}", e.Message);
+            }
+        }
+        static async Task<string> ReadFileAsync(string filename)
+        {
+            using (var reader = File.OpenText(filename))
+            {
+                return await reader.ReadToEndAsync();
+            }
+        }
+
+        private async static Task CatchMultipleExceptions()
+        {
+            Task task1 = Task.Run(() =>
+            {
+                throw new Exception("Message 1");
+            });
+            Task task2 = Task.Run(() =>
+            {
+                throw new Exception("Message 2");
+            });
+            try
+            {
+                await Task.WhenAll(task1, task2);
+            }
+            catch (AggregateException e)
+            {
+                Console.WriteLine("Caught {0} exceptions: {1}",
+                e.InnerExceptions.Count,
+                string.Join(", ",
+                e.InnerExceptions.Select(x => x.Message)));
+            }
+        }
         static async Task<int> GetPageLengthAsync(string url)
         {
             using (var client = new HttpClient())
