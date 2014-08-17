@@ -20,12 +20,10 @@ namespace ParallelTask
 
         public static void Range()
         {
-            var collection = ParallelEnumerable.Range(0, 1000)
-                                        .Reverse();
-            foreach (var element in collection)
-            {
-                Console.WriteLine(element);
-            }
+            ParallelEnumerable.Range(0, 1000)
+                              .Where(x => x % 2 != 0)
+                              .Reverse()
+                              .ForAll(item => Console.WriteLine("ParallelEnumerable: " + item));
         }
     }
 }
