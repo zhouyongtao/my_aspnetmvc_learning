@@ -15,8 +15,22 @@ namespace ParallelTask
         {
             logger("Main Current Begin Thread Id :" + Thread.CurrentThread.ManagedThreadId);
             //GetDayOfWeek();
+            TestExpression.StartsWith();
+            TestExpression.Range();
             TestAwait();
             logger("Main Current End Thread Id :" + Thread.CurrentThread.ManagedThreadId);
+
+            string text = @"Do you like green eggs and ham?
+                            I do not like them, Sam-I-am.
+                            I do not like green eggs and ham.";
+            Dictionary<string, int> frequencies = CountWords(text);
+            foreach (var entry in frequencies)
+            {
+                string word = entry.Key;
+                int frequency = entry.Value;
+                Console.WriteLine("{0}: {1}", word, frequency);
+            }
+
             Console.ReadKey();
         }
 
