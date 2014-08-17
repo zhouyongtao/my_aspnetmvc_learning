@@ -18,6 +18,19 @@ namespace ParallelTask
         static void Main(string[] args)
         {
             logger("Main Current Begin Thread Id :" + Thread.CurrentThread.ManagedThreadId);
+            new List<string>
+            {
+                "http://163.com",
+                "http://qq.com"
+            }.Select(async url =>
+            {
+                using (var client = new HttpClient())
+                {
+                    await Task.Delay(2000);
+                    Console.WriteLine("Task CurrentThread {0}", Thread.CurrentThread.ManagedThreadId);
+                    return await client.GetStringAsync(url);
+                }
+            }).ToList().ForEach(item => Console.WriteLine("tasks...  count={0} CurrentThread {1}", item.Result, Thread.CurrentThread.ManagedThreadId));
             //GetDayOfWeek();
             //TestExpression.StartsWith();
             // TestExpression.Range();
