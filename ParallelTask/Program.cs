@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Cache;
+using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -15,11 +17,14 @@ namespace ParallelTask
         {
             logger("Main Current Begin Thread Id :" + Thread.CurrentThread.ManagedThreadId);
             //GetDayOfWeek();
-            TestExpression.StartsWith();
-            TestExpression.Range();
-            TestAwait();
+            //TestExpression.StartsWith();
+            // TestExpression.Range();
+            //TestAwait();
+            Task<int> lengthTask =GetPageLengthAsync("http://baidu.com");
+            Console.WriteLine(lengthTask.Result);
             logger("Main Current End Thread Id :" + Thread.CurrentThread.ManagedThreadId);
 
+            /*
             string text = @"Do you like green eggs and ham?
                             I do not like them, Sam-I-am.
                             I do not like green eggs and ham.";
@@ -30,8 +35,17 @@ namespace ParallelTask
                 int frequency = entry.Value;
                 Console.WriteLine("{0}: {1}", word, frequency);
             }
-
+            */
             Console.ReadKey();
+        }
+
+        static async Task<int> GetPageLengthAsync(string url)
+        {
+            using (var client = new HttpClient())
+            {
+                Task<string> fetchTextTask = client.GetStringAsync(url);
+                return (await fetchTextTask).Length;
+            }
         }
 
         static async Task TestAwait()
