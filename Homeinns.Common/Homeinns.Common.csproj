@@ -304,7 +304,6 @@
     <Compile Include="Net\Http\ResponseStreamContent.cs" />
     <Compile Include="Net\Http\ResponseStringContent.cs" />
     <Compile Include="Net\Http\ResponseXmlContent.cs" />
-    <Compile Include="Net\Http\Utility.cs" />
     <Compile Include="Net\Mail\MailHelper.cs" />
     <Compile Include="Pay\Alipay\AlipayConfig.cs" />
     <Compile Include="Pay\Alipay\AlipayCore.cs" />
