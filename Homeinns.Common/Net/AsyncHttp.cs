@@ -79,7 +79,6 @@ namespace Homeinns.Common.Net
                 webRequest.Method = "POST";
                 webRequest.ContentType = "application/x-www-form-urlencoded";
                 webRequest.ServicePoint.Expect100Continue = false;
-
                 try
                 {
                     //POST the data.
@@ -107,7 +106,6 @@ namespace Homeinns.Common.Net
                     if (requestWriter != null)
                     {
                         requestWriter.Close();
-                        requestWriter = null;
                     }
                 }
             }
