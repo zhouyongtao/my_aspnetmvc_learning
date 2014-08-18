@@ -36,7 +36,6 @@ namespace Homeinns.Common.Net
     {
         public ManualResetEvent allDone = new ManualResetEvent(false);
         const int DefaultTimeout = 60 * 1000; // 1 minutes timeout
-
         //异步方式发起http get请求
         public bool HttpGet(string url, string queryString, AsyncHttpCallback callback)
         {
@@ -44,25 +43,27 @@ namespace Homeinns.Common.Net
             {
                 url += "?" + queryString;
             }
-
-            HttpWebRequest webRequest = WebRequest.Create(url) as HttpWebRequest;
-            webRequest.Method = "GET";
-            webRequest.ServicePoint.Expect100Continue = false;
-
-            try
+            var webRequest = WebRequest.Create(url) as HttpWebRequest;
+            if (webRequest != null)
             {
-                RequestState state = new RequestState() { cb = callback, request = webRequest };
-                IAsyncResult result = (IAsyncResult)webRequest.BeginGetResponse(new AsyncCallback(ResponseCallback), state);
-                // this line implements the timeout, if there is a timeout, the callback fires and the request becomes aborted
-                ThreadPool.RegisterWaitForSingleObject(result.AsyncWaitHandle, new WaitOrTimerCallback(TimeoutCallback), webRequest, DefaultTimeout, true);
-                // The response came in the allowed time. The work processing will happen in the callback function.
-                allDone.WaitOne();
-                // Release the HttpWebResponse resource.
-                state.response.Close();
-            }
-            catch
-            {
-                return false;
+                webRequest.Method = "GET";
+                webRequest.ServicePoint.Expect100Continue = false;
+
+                try
+                {
+                    var state = new RequestState() { cb = callback, request = webRequest };
+                    var result = (IAsyncResult)webRequest.BeginGetResponse(ResponseCallback, state);
+                    // this line implements the timeout, if there is a timeout, the callback fires and the request becomes aborted
+                    ThreadPool.RegisterWaitForSingleObject(result.AsyncWaitHandle, new WaitOrTimerCallback(TimeoutCallback), webRequest, DefaultTimeout, true);
+                    // The response came in the allowed time. The work processing will happen in the callback function.
+                    allDone.WaitOne();
+                    // Release the HttpWebResponse resource.
+                    state.response.Close();
+                }
+                catch
+                {
+                    return false;
+                }
             }
 
             return true;
