@@ -1,0 +1,47 @@
+﻿https://github.com/lbv/litjson
+http://lbv.github.io/litjson/docs/quickstart.html
+
+Release: litjson-0.7.0
+
+using LitJson;
+using System;
+
+public class Person
+{
+    // C# 3.0 auto-implemented properties
+    public string   Name     { get; set; }
+    public int      Age      { get; set; }
+    public DateTime Birthday { get; set; }
+}
+
+public class JsonSample
+{
+    public static void Main()
+    {
+        PersonToJson();
+        JsonToPerson();
+    }
+
+    public static void PersonToJson()
+    {
+        Person bill = new Person();
+
+        bill.Name = "William Shakespeare";
+        bill.Age  = 51;
+        bill.Birthday = new DateTime(1564, 4, 26);
+        string json_bill = JsonMapper.ToJson(bill);
+        Console.WriteLine(json_bill);
+    }
+
+    public static void JsonToPerson()
+    {
+        string json = @"
+            {
+                ""Name""     : ""Thomas More"",
+                ""Age""      : 57,
+                ""Birthday"" : ""02/07/1478 00:00:00""
+            }";
+        Person thomas = JsonMapper.ToObject<Person>(json);
+        Console.WriteLine("Thomas' age: {0}", thomas.Age);
+    }
+}

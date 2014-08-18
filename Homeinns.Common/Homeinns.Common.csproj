@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22689CA6-85D1-4346-83E4-11D465F8ABF1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Homeinns.Common</RootNamespace>
+    <AssemblyName>Homeinns.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\Homeinns.MVC\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChnCharInfo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=18f031bd02e5e291, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>Lib\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL" />
+    <Reference Include="Redslide.HttpLib, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Z.ExtensionMethods, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ajax\AjaxAction.cs" />
+    <Compile Include="Ajax\AjaxRequestHelper.cs" />
+    <Compile Include="Ajax\AjaxResult.cs" />
+    <Compile Include="Ajax\AjaxTypeContainer.cs" />
+    <Compile Include="Ajax\DataHelper.cs" />
+    <Compile Include="Ajax\TypeHelper.cs" />
+    <Compile Include="Base\Encrypt\EncryptUtil.cs" />
+    <Compile Include="Base\PinYinConver.cs" />
+    <Compile Include="Base\ShareUtil.cs" />
+    <Compile Include="Base\NVelocityEngine.cs" />
+    <Compile Include="Base\ThumbImgUtil.cs" />
+    <Compile Include="Data\Dapper\SqlExtension.cs" />
+    <Compile Include="Data\Dapper\SqlMapperExtensions.cs" />
+    <Compile Include="Data\PetaPoco\OracleProvider.cs" />
+    <Compile Include="Data\PetaPoco\PetaPoco.cs" />
+    <Compile Include="Ext\ExpressionExtension.cs" />
+    <Compile Include="Ext\ExtensionAttribute.cs" />
+    <Compile Include="Ext\Extension\ByteExtension.cs" />
+    <Compile Include="Ext\Extension\RegularExtension.cs" />
+    <Compile Include="Ext\Extension\StreamExtension.cs" />
+    <Compile Include="Ext\PKG\Extensions.Entity\OperationResult.cs" />
+    <Compile Include="Ext\PKG\Extensions4\ConcurrentExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions4\ObjectCacheExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\ArrayExtension.cs" />
+    <Compile Include="Ext\PKG\Extensions\BitmapExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\BooleanExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\ByteArrayExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\CollectionExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\ColorExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\CombinedException.cs" />
+    <Compile Include="Ext\PKG\Extensions\ComparableExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\ComponentExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\ConstructorExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\Converter.cs" />
+    <Compile Include="Ext\PKG\Extensions\Cultures.cs" />
+    <Compile Include="Ext\PKG\Extensions\DataReaderExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DataRowExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DataRowViewExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DateTimeOffsetExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DbConnectionExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DecimalExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DirectoryInfoExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DisplayStringAttribute.cs" />
+    <Compile Include="Ext\PKG\Extensions\DoubleExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\DrawingExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\EnumExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\EventHandlerExtenders.cs" />
+    <Compile Include="Ext\PKG\Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\ExtensionMethodSetting.cs" />
+    <Compile Include="Ext\PKG\Extensions\FileInfoExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\FloatExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\IConverter.cs" />
+    <Compile Include="Ext\PKG\Extensions\IntExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\IQueryableExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\ListExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\LongExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\ObjectExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\PrincipalExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\SocketExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\StreamExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\StringArrayExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\StringConverter.cs" />
+    <Compile Include="Ext\PKG\Extensions\StringExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\SystemDependencies\Clock.cs" />
+    <Compile Include="Ext\PKG\Extensions\SystemDependencies\SubstituteForSystemDate.cs" />
+    <Compile Include="Ext\PKG\Extensions\TextReaderExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\TimeSpanExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\TypeExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\ValueTypeExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\XmlNodeExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions\XmlSerializeExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions.Web\ControlExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions.Web\HttpListenerContextExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions.Web\HttpResponseExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions.Web\HttpSessionStateExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions.Web\StateBagExtensions.cs" />
+    <Compile Include="Ext\PKG\Extensions.Web\UriQueryString.cs" />
+    <Compile Include="Lib\LitJson\IJsonWrapper.cs" />
+    <Compile Include="Lib\LitJson\JsonData.cs" />
+    <Compile Include="Lib\LitJson\JsonException.cs" />
+    <Compile Include="Lib\LitJson\JsonMapper.cs" />
+    <Compile Include="Lib\LitJson\JsonMockWrapper.cs" />
+    <Compile Include="Lib\LitJson\JsonReader.cs" />
+    <Compile Include="Lib\LitJson\JsonWriter.cs" />
+    <Compile Include="Lib\LitJson\Lexer.cs" />
+    <Compile Include="Lib\LitJson\ParserToken.cs" />
+    <Compile Include="Net\AsyncHttp.cs" />
+    <Compile Include="Net\ECom.cs" />
+    <Compile Include="Net\HttpClient.cs" />
+    <Compile Include="Net\HttpUtil.cs" />
+    <Compile Include="Base\FileUtil.cs" />
+    <Compile Include="Base\Regular\RegexHelper.cs" />
+    <Compile Include="Base\Web\CacheUtil.cs" />
+    <Compile Include="Base\Web\CookieUtil.cs" />
+    <Compile Include="Base\Web\DownFile.cs" />
+    <Compile Include="Base\Web\FormUtil.cs" />
+    <Compile Include="Base\Web\JavaScript\AjaxResponse.cs" />
+    <Compile Include="Base\Web\JavaScript\JScript.cs" />
+    <Compile Include="Base\Web\SessionUtil.cs" />
+    <Compile Include="Base\Encrypt\SHAEncrypt.cs" />
+    <Compile Include="Data\DbService.cs" />
+    <Compile Include="Data\Serializer\DateTimeConverter.cs" />
+    <Compile Include="Data\Serializer\JsonSerializer.cs" />
+    <Compile Include="Data\Serializer\SoapSerializer.cs" />
+    <Compile Include="Data\SqlHelper.cs" />
+    <Compile Include="Entity\Common\Comb.cs" />
+    <Compile Include="Entity\Common\DatabaseObject.cs" />
+    <Compile Include="Entity\Common\DbParameterBoundEventArgs.cs" />
+    <Compile Include="Entity\Common\DbService.cs" />
+    <Compile Include="Entity\Content\PageIndicatorInfo.cs" />
+    <Compile Include="Data\Dapper\SqlBuilder.cs" />
+    <Compile Include="Entity\Association\ColumnAssociationAttribute.cs" />
+    <Compile Include="Entity\Association\EntityAssociationAttribute.cs" />
+    <Compile Include="Entity\Association\IEntity.cs" />
+    <Compile Include="Entity\Schema\Analyser\AccessAnalyser.cs" />
+    <Compile Include="Entity\Schema\Analyser\DatabaseAnalyser.cs" />
+    <Compile Include="Entity\Schema\Analyser\MySqlAnalyser.cs" />
+    <Compile Include="Entity\Schema\Analyser\OracleAnalyser.cs" />
+    <Compile Include="Entity\Schema\Analyser\SQLiteAnalyser.cs" />
+    <Compile Include="Entity\Schema\Analyser\SqlServerAnalyser.cs" />
+    <Compile Include="Entity\Schema\ColumnSchema.cs" />
+    <Compile Include="Entity\Schema\DatabaseSchema.cs" />
+    <Compile Include="Entity\Schema\DBMSType.cs" />
+    <Compile Include="Entity\Schema\NRDbProviderFactories.cs" />
+    <Compile Include="Entity\Schema\TableSchema.cs" />
+    <Compile Include="Data\Serializer\BinarySerializer.cs" />
+    <Compile Include="Data\Serializer\DataSetSerializer.cs" />
+    <Compile Include="Data\Serializer\DataSetSurrogate.cs" />
+    <Compile Include="Data\Serializer\ObjectXmlSerializer.cs" />
+    <Compile Include="Data\Dapper\SqlMapper.cs" />
+    <Compile Include="Base\Encrypt\DESEncrypt.cs" />
+    <Compile Include="Base\Encrypt\MD5Encrypt.cs" />
+    <Compile Include="Entity\Text\Clause.cs" />
+    <Compile Include="Entity\Text\CommandTextAnalyser.cs" />
+    <Compile Include="Entity\Text\DbCommandClause.cs" />
+    <Compile Include="Ext\ExpressionUtil.cs" />
+    <Compile Include="Ext\Extension\DateTimeExtension.cs" />
+    <Compile Include="Ext\Extension\IEnumerableExtension.cs" />
+    <Compile Include="Ext\Extension\ObjectExtension.cs" />
+    <Compile Include="Ext\Extension\StringExtension.cs" />
+    <Compile Include="Ext\Extension\TimeSpanExtension.cs" />
+    <Compile Include="Ext\Extension\TypeExtension.cs" />
+    <Compile Include="Lib\FastJSON\dynamic.cs" />
+    <Compile Include="Lib\FastJSON\Formatter.cs" />
+    <Compile Include="Lib\FastJSON\Getters.cs" />
+    <Compile Include="Lib\FastJSON\JSON.cs" />
+    <Compile Include="Lib\FastJSON\JsonParser.cs" />
+    <Compile Include="Lib\FastJSON\JsonSerializer.cs" />
+    <Compile Include="Lib\FastJSON\Reflection.cs" />
+    <Compile Include="Lib\FastJSON\SafeDictionary.cs" />
+    <Compile Include="Log\ConsoleLogRecord.cs" />
+    <Compile Include="Log\LogHandler.cs" />
+    <Compile Include="Log\EventLogRecord.cs" />
+    <Compile Include="Log\IRecordLog.cs" />
+    <Compile Include="Log\LogerManager.cs" />
+    <Compile Include="Log\LogerManagerFactory.cs" />
+    <Compile Include="Log\LogSetting.cs" />
+    <Compile Include="Log\LogTypeEnum.cs" />
+    <Compile Include="Log\NRLog.cs" />
+    <Compile Include="Log\TextLogRecord.cs" />
+    <Compile Include="Net\DataProgressEventArgs.cs" />
+    <Compile Include="Net\ExtensionMethods.cs" />
+    <Compile Include="Net\Http\AttachedFileAttribute.cs" />
+    <Compile Include="Net\Http\FormNameAttribute.cs" />
+    <Compile Include="Net\Http\HttpClient.cs" />
+    <Compile Include="Net\Http\HttpContext.cs" />
+    <Compile Include="Net\Http\HttpExtensionMethod.cs" />
+    <Compile Include="Net\Http\HttpHandler.cs" />
+    <Compile Include="Net\Http\HttpMethod.cs" />
+    <Compile Include="Net\Http\HttpPostFile.cs" />
+    <Compile Include="Net\Http\HttpRedirection.cs" />
+    <Compile Include="Net\Http\HttpRequestContent.cs" />
+    <Compile Include="Net\Http\HttpRequestMessage.cs" />
+    <Compile Include="Net\Http\HttpResponseContent.cs" />
+    <Compile Include="Net\Http\HttpResponseMessage.cs" />
+    <Compile Include="Net\Http\HttpSetting.cs" />
+    <Compile Include="Net\Http\HttpStreamWrapper.cs" />
+    <Compile Include="Net\Http\HttpVirtualBytePostFile.cs" />
+    <Compile Include="Net\Http\HttpVirtualStreamPostFile.cs" />
+    <Compile Include="Net\Http\IFormData.cs" />
+    <Compile Include="Net\Http\IgnoreFieldAttribute.cs" />
+    <Compile Include="Net\Http\ObjectSerializationType.cs" />
+    <Compile Include="Net\Http\ObjectSerializeAttribute.cs" />
+    <Compile Include="Net\Http\Range.cs" />
+    <Compile Include="Net\Http\RequestByteBufferContent.cs" />
+    <Compile Include="Net\Http\RequestCopyStreamContent.cs" />
+    <Compile Include="Net\Http\RequestFormDataContent.cs" />
+    <Compile Include="Net\Http\RequestObjectContent.cs" />
+    <Compile Include="Net\Http\RequestStringContent.cs" />
+    <Compile Include="Net\Http\ResponseBinaryContent.cs" />
+    <Compile Include="Net\Http\ResponseFileContent.cs" />
+    <Compile Include="Net\Http\ResponseImageContent.cs" />
+    <Compile Include="Net\Http\ResponseObjectContent.cs" />
+    <Compile Include="Net\Http\ResponseStreamContent.cs" />
+    <Compile Include="Net\Http\ResponseStringContent.cs" />
+    <Compile Include="Net\Http\ResponseXmlContent.cs" />
+    <Compile Include="Net\Http\Utility.cs" />
+    <Compile Include="Net\Mail\MailHelper.cs" />
+    <Compile Include="Pay\Alipay\AlipayConfig.cs" />
+    <Compile Include="Pay\Alipay\AlipayCore.cs" />
+    <Compile Include="Pay\Alipay\AlipayNotify.cs" />
+    <Compile Include="Pay\Alipay\AlipayService.cs" />
+    <Compile Include="Pay\Alipay\AlipaySubmit.cs" />
+    <Compile Include="Pay\Tenpay\ClientResponseHandler.cs" />
+    <Compile Include="Pay\Tenpay\MD5Util.cs" />
+    <Compile Include="Pay\Tenpay\RequestHandler.cs" />
+    <Compile Include="Pay\Tenpay\ResponseHandler.cs" />
+    <Compile Include="Pay\Tenpay\TenpayHttpClient.cs" />
+    <Compile Include="Pay\Tenpay\TenpayUtil.cs" />
+    <Compile Include="Pay\Wxpay\ClientResponseHandler.cs" />
+    <Compile Include="Pay\Wxpay\MD5Util.cs" />
+    <Compile Include="Pay\Wxpay\RequestHandler.cs" />
+    <Compile Include="Pay\Wxpay\ResponseHandler.cs" />
+    <Compile Include="Pay\Wxpay\SHA1Util.cs" />
+    <Compile Include="Pay\Wxpay\TenpayHttpClient.cs" />
+    <Compile Include="Pay\Wxpay\TenpayUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ref\PropertyCopier.cs" />
+    <Compile Include="Ref\PropertyCopy.cs" />
+    <Compile Include="UI\Common\ControlDictInfo.cs" />
+    <Compile Include="UI\Common\ControlMap.cs" />
+    <Compile Include="UI\Common\DataContainer.cs" />
+    <Compile Include="UI\Common\DataContainerInfo.cs" />
+    <Compile Include="UI\Common\ReturnData.cs" />
+    <Compile Include="UI\Web\WebControlInfo.cs" />
+    <Compile Include="UI\Web\WebDataContainer.cs" />
+    <Compile Include="UI\Windows\WinControlInfo.cs" />
+    <Compile Include="UI\Windows\WinDataContainer.cs" />
+    <Compile Include="Util\AppSetting.cs" />
+    <Compile Include="Util\ConstantKey.cs" />
+    <Compile Include="Util\DBSetting.cs" />
+    <Compile Include="Util\Utility.cs" />
+    <Compile Include="Web\HttpModule\CompressHttpModule.cs" />
+    <Compile Include="Web\HttpModule\ErrorHttpModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Lib\Newtonsoft.Json.5.0.8\Newtonsoft.Json.5.0.8.nupkg" />
+    <None Include="Lib\Newtonsoft.Json.5.0.8\Newtonsoft.Json.5.0.8.nuspec" />
+    <None Include="Lib\Newtonsoft.Json.5.0.8\tools\install.ps1" />
+    <None Include="Lib\NVelocity.1.0.3\NVelocity.1.0.3.nupkg" />
+    <None Include="Lib\NVelocity.1.0.3\NVelocity.1.0.3.nuspec" />
+    <None Include="StrongKey.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="changelog.txt" />
+    <Content Include="Data\Dapper\ReadMe.txt" />
+    <Content Include="Lib\ChnCharInfo.dll" />
+    <Content Include="Lib\LitJson\reademe.txt" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\netcore45\Newtonsoft.Json.dll" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\netcore45\Newtonsoft.Json.xml" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.xml" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll" />
+    <Content Include="Lib\Newtonsoft.Json.5.0.8\lib\portable-net45+wp80+win8\Newtonsoft.Json.xml" />
+    <Content Include="Lib\NVelocity.1.0.3\lib\NVelocity.dll" />
+    <Content Include="Lib\NVelocity.1.0.3\lib\NVelocity.xml" />
+    <Content Include="Lib\Redslide.HttpLib.dll" />
+    <Content Include="Lib\Z.ExtensionMethods\ReadMe.txt" />
+    <Content Include="Lib\Z.ExtensionMethods\Z.ExtensionMethods.dll" />
+    <Content Include="Lib\Z.ExtensionMethods\Z.ExtensionMethods.pdb" />
+    <Content Include="Pay\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ext\LINQ\" />
+    <Folder Include="Log\ILog\" />
+    <Folder Include="Net\Socket\" />
+    <Folder Include="OAuth\" />
+    <Folder Include="ORM\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
