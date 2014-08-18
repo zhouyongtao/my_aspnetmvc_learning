@@ -105,19 +105,20 @@ namespace Homeinns.Common.Net.Http
 			return context;
 		}
 
-		/// <summary>
-		/// 创建网络请求
-		/// </summary>
-		/// <param name="uri">请求地址</param>
-		/// <param name="method">方法</param>
-		/// <param name="requestData">写入的数据</param>
-		/// <param name="refer">引用页</param>
-		/// <param name="messageCallback">消息处理句柄</param>
-		/// <param name="saveToFile">保存文件地址</param>
-		/// <param name="streamInvoker">流读取对象，仅当返回结果为流时可用</param>
-		/// <typeparam name="TResult">结果类型</typeparam>
-		/// <returns></returns>
-		public HttpContext<TResult> Create<TResult>(Uri uri, HttpMethod? method = null, object requestData = null, Uri refer = null,
+	    /// <summary>
+	    /// 创建网络请求
+	    /// </summary>
+	    /// <param name="uri">请求地址</param>
+	    /// <param name="method">方法</param>
+	    /// <param name="requestData">写入的数据</param>
+	    /// <param name="refer">引用页</param>
+	    /// <param name="messageCallback">消息处理句柄</param>
+	    /// <param name="saveToFile">保存文件地址</param>
+	    /// <param name="streamInvoker">流读取对象，仅当返回结果为流时可用</param>
+	    /// <param name="async"></param>
+	    /// <typeparam name="TResult">结果类型</typeparam>
+	    /// <returns></returns>
+	    public HttpContext<TResult> Create<TResult>(Uri uri, HttpMethod? method = null, object requestData = null, Uri refer = null,
 			Action<HttpRequestMessage> messageCallback = null, string saveToFile = null, Action<Stream> streamInvoker = null, bool async = false)
 		{
 			var resultType = typeof(TResult);
@@ -127,8 +128,6 @@ namespace Homeinns.Common.Net.Http
 				if (requestData != null) method = HttpMethod.POST;
 			}
 			if (streamInvoker != null && typeof(Stream) == resultType) throw new InvalidOperationException("非流结果时不可设置流操作");
-
-
 			var request = new HttpRequestMessage(uri, method.Value)
 			{
 				ReferUri = refer,
@@ -154,11 +153,8 @@ namespace Homeinns.Common.Net.Http
 				request.RequestData = new RequestByteBufferContent(new byte[0]);
 			}
 			request.Async = async;
-
 			if (messageCallback != null) messageCallback(request);
-
 			var ctx = HttpHandler.GetContext<TResult>(this, request);
-
 			//自动设置格式
 			if (request.ExceptType == null)
 			{

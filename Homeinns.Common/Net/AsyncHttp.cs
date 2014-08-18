@@ -73,40 +73,42 @@ namespace Homeinns.Common.Net
         public bool HttpPost(string url, string queryString, AsyncHttpCallback callback)
         {
             StreamWriter requestWriter = null;
-            HttpWebRequest webRequest = WebRequest.Create(url) as HttpWebRequest;
-            webRequest.Method = "POST";
-            webRequest.ContentType = "application/x-www-form-urlencoded";
-            webRequest.ServicePoint.Expect100Continue = false;
-
-            try
+            var webRequest = WebRequest.Create(url) as HttpWebRequest;
+            if (webRequest != null)
             {
-                //POST the data.
-                requestWriter = new StreamWriter(webRequest.GetRequestStream());
-                requestWriter.Write(queryString);
-                requestWriter.Close();
-                requestWriter = null;
-                RequestState state = new RequestState() { cb = callback, request = webRequest };
-                IAsyncResult result = (IAsyncResult)webRequest.BeginGetResponse(new AsyncCallback(ResponseCallback), state);
-                // this line implements the timeout, if there is a timeout, the callback fires and the request becomes aborted
-                ThreadPool.RegisterWaitForSingleObject(result.AsyncWaitHandle, new WaitOrTimerCallback(TimeoutCallback), webRequest, DefaultTimeout, true);
+                webRequest.Method = "POST";
+                webRequest.ContentType = "application/x-www-form-urlencoded";
+                webRequest.ServicePoint.Expect100Continue = false;
 
-                // The response came in the allowed time. The work processing will happen in the
-                // callback function.
-                allDone.WaitOne();
-
-                // Release the HttpWebResponse resource.
-                state.response.Close();
-            }
-            catch
-            {
-                return false;
-            }
-            finally
-            {
-                if (requestWriter != null)
+                try
                 {
+                    //POST the data.
+                    requestWriter = new StreamWriter(webRequest.GetRequestStream());
+                    requestWriter.Write(queryString);
                     requestWriter.Close();
                     requestWriter = null;
+                    var state = new RequestState() { cb = callback, request = webRequest };
+                    var result = (IAsyncResult)webRequest.BeginGetResponse(new AsyncCallback(ResponseCallback), state);
+                    // this line implements the timeout, if there is a timeout, the callback fires and the request becomes aborted
+                    ThreadPool.RegisterWaitForSingleObject(result.AsyncWaitHandle, new WaitOrTimerCallback(TimeoutCallback), webRequest, DefaultTimeout, true);
+
+                    // The response came in the allowed time. The work processing will happen in the
+                    // callback function.
+                    allDone.WaitOne();
+                    // Release the HttpWebResponse resource.
+                    state.response.Close();
+                }
+                catch
+                {
+                    return false;
+                }
+                finally
+                {
+                    if (requestWriter != null)
+                    {
+                        requestWriter.Close();
+                        requestWriter = null;
+                    }
                 }
             }
 
@@ -116,14 +118,17 @@ namespace Homeinns.Common.Net
 
         private void ResponseCallback(IAsyncResult asynchronousResult)
         {
-            RequestState state = (RequestState)asynchronousResult.AsyncState;
+            var state = (RequestState)asynchronousResult.AsyncState;
             try
             {
                 HttpWebRequest webRequest = state.request;
                 state.response = (HttpWebResponse)webRequest.EndGetResponse(asynchronousResult);
                 Stream responseStream = state.response.GetResponseStream();
                 state.streamResponse = responseStream;
-                IAsyncResult asynchronousInputRead = responseStream.BeginRead(state.BufferRead, 0, RequestState.BUFFER_SIZE, new AsyncCallback(ReadCallBack), state);
+                if (responseStream != null)
+                {
+                    IAsyncResult asynchronousInputRead = responseStream.BeginRead(state.BufferRead, 0, RequestState.BUFFER_SIZE, new AsyncCallback(ReadCallBack), state);
+                }
                 return;
             }
             catch
@@ -135,7 +140,7 @@ namespace Homeinns.Common.Net
 
         private void ReadCallBack(IAsyncResult asyncResult)
         {
-            RequestState state = (RequestState)asyncResult.AsyncState;
+            var state = (RequestState)asyncResult.AsyncState;
             Stream responseStream = state.streamResponse;
             try
             {
@@ -170,7 +175,7 @@ namespace Homeinns.Common.Net
         {
             if (timedOut)
             {
-                HttpWebRequest request = state as HttpWebRequest;
+                var request = state as HttpWebRequest;
                 if (request != null)
                 {
                     request.Abort();
