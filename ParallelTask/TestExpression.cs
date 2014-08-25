@@ -20,6 +20,7 @@ namespace ParallelTask
 
         public static void Range()
         {
+
             ParallelEnumerable.Range(0, 1000)
                               .Where(x => x % 2 != 0)
                               .Reverse()
