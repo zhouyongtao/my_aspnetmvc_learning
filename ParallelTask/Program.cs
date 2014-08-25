@@ -31,6 +31,8 @@ namespace ParallelTask
                     return await client.GetStringAsync(url);
                 }
             }).ToList().ForEach(item => Console.WriteLine("tasks...  count={0} CurrentThread {1}", item.Result, Thread.CurrentThread.ManagedThreadId));
+           
+            
             //GetDayOfWeek();
             //TestExpression.StartsWith();
             // TestExpression.Range();
