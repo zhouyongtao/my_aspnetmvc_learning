@@ -21,7 +21,7 @@ namespace ParallelTask
             new List<string>
             {
                 "http://163.com",
-                "http://qq.com"
+                "http://sina.com"
             }.Select(async url =>
             {
                 using (var client = new HttpClient())
@@ -31,8 +31,7 @@ namespace ParallelTask
                     return await client.GetStringAsync(url);
                 }
             }).ToList().ForEach(item => Console.WriteLine("tasks...  count={0} CurrentThread {1}", item.Result, Thread.CurrentThread.ManagedThreadId));
-           
-            
+
             //GetDayOfWeek();
             //TestExpression.StartsWith();
             // TestExpression.Range();
