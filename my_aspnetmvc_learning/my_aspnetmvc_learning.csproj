@@ -184,6 +184,7 @@
     <Compile Include="Controllers\NSoupController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ParallelController.cs" />
+    <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\RmbController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Global.asax.cs">
@@ -297,6 +298,7 @@
     <Folder Include="Views\Async\" />
     <Folder Include="Views\NSoup\" />
     <Folder Include="Views\Parallel\" />
+    <Folder Include="Views\Redirect\" />
     <Folder Include="Views\Rmb\" />
     <Folder Include="Views\Task\" />
   </ItemGroup>
