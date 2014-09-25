@@ -186,6 +186,7 @@
     <Compile Include="Controllers\ParallelController.cs" />
     <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\RmbController.cs" />
+    <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -300,6 +301,7 @@
     <Folder Include="Views\Parallel\" />
     <Folder Include="Views\Redirect\" />
     <Folder Include="Views\Rmb\" />
+    <Folder Include="Views\Route\" />
     <Folder Include="Views\Task\" />
   </ItemGroup>
   <ItemGroup>
