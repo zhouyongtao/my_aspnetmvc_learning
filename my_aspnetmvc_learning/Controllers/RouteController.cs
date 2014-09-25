@@ -31,7 +31,6 @@ namespace my_aspnetmvc_learning.Controllers
         [Route("books/lang/{lang=en}")]
         public ActionResult ViewByLanguage(string lang)
         {
-      
             return View();
         }
         [Route("attribute-routing-in-asp-net-mvc-5")]
