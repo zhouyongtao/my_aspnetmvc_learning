@@ -33,6 +33,7 @@ namespace my_aspnetmvc_learning.Controllers
         {
             return View();
         }
+
         [Route("attribute-routing-in-asp-net-mvc-5")]
         public ActionResult Hotel()
         {
