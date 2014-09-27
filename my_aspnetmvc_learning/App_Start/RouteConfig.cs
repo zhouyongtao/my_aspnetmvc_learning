@@ -12,6 +12,7 @@ namespace my_aspnetmvc_learning
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            //启用特性路由
             routes.MapMvcAttributeRoutes();
             routes.MapRoute(
                 name: "Default",

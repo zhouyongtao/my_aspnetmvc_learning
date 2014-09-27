@@ -13,7 +13,7 @@ namespace my_aspnetmvc_learning.Controllers
     {
         //
         // GET: /Route/
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             return View();
         }
@@ -29,7 +29,7 @@ namespace my_aspnetmvc_learning.Controllers
         // eg: /books/lang/en
         // eg: /books/lang/he
         [Route("books/lang/{lang=en}")]
-        public ActionResult ViewByLanguage(string lang)
+        public ActionResult Lan(string lang)
         {
             return View();
         }
@@ -37,7 +37,7 @@ namespace my_aspnetmvc_learning.Controllers
         [Route("attribute-routing-in-asp-net-mvc-5")]
         public ActionResult Hotel()
         {
-            return Content("http://diaosbook.com/Post/2013/10/22/attribute-routing-in-asp-net-mvc-5");
+            return Content("I'am mvc attribute route! ");
         }
     }
 }
