@@ -26,5 +26,18 @@ namespace my_aspnetmvc_learning.Controllers
 
             return View();
         }
+
+        public ActionResult Detail(string id)
+        {
+            Guid sId = Guid.Empty;
+            if (!Guid.TryParse(id, out sId))
+            {
+                return new HttpNotFoundResult();
+            }
+            else
+            {
+                return View();
+            }
+        }
     }
 }
